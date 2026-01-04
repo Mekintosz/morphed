@@ -1,0 +1,122 @@
+.section {
+    padding: 5rem 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.title {
+    font-family: var(--font-michroma);
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 2.25rem;
+    }
+}
+
+.divider {
+    height: 4px;
+    width: 6rem;
+    background: var(--color-neon-blue);
+    margin: 0 auto;
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 10px var(--color-neon-blue);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card {
+    position: relative;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    transition: all var(--transition-normal);
+}
+
+.cardInner {
+    position: relative;
+    height: 100%;
+    background: var(--color-panel);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all var(--transition-normal);
+}
+
+.card:hover .cardInner {
+    border-color: var(--color-neon-blue);
+    box-shadow: var(--shadow-neon-blue);
+}
+
+.iconWrapper {
+    margin-bottom: 1rem;
+    transition: transform var(--transition-normal);
+    color: var(--color-neon-blue);
+}
+
+.card:hover .iconWrapper {
+    transform: scale(1.1);
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    font-family: var(--font-michroma);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.cardDescription {
+    color: #e5e7eb;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.cornerAccent {
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.card:hover .cornerAccent {
+    opacity: 1;
+}
+
+.cornerTopLeft {
+    top: 0;
+    left: 0;
+    background: var(--color-neon-blue);
+}
+
+.cornerBottomRight {
+    bottom: 0;
+    right: 0;
+    background: var(--color-neon-blue);
+}

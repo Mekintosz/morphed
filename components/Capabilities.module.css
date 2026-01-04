@@ -1,0 +1,178 @@
+.section {
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.backgroundGlow {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) skewX(12deg);
+    width: 50%;
+    height: 100%;
+    background: rgba(0, 243, 255, 0.05);
+    pointer-events: none;
+}
+
+.contentGrid {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: var(--z-content);
+}
+
+@media (min-width: 768px) {
+    .contentGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.imageWrapper {
+    position: relative;
+}
+
+.imageGlow {
+    position: absolute;
+    inset: -8px;
+    background: linear-gradient(90deg,
+            var(--color-neon-blue),
+            var(--color-neon-green));
+    opacity: 0.2;
+    filter: blur(16px);
+    transition: opacity var(--transition-slow);
+}
+
+.imageWrapper:hover .imageGlow {
+    opacity: 0.4;
+}
+
+.imageContainer {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.5rem;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+.imageOverlay {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid var(--color-neon-blue);
+    backdrop-filter: blur(4px);
+}
+
+.overlayContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.statusLabel {
+    font-size: 0.75rem;
+    color: var(--color-neon-blue);
+    font-family: 'Courier New', monospace;
+    margin-bottom: 0.25rem;
+}
+
+.statusValue {
+    color: white;
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: 0.1em;
+}
+
+.bars {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.bar {
+    width: 0.25rem;
+    height: 1rem;
+}
+
+.barActive {
+    background: var(--color-neon-blue);
+}
+
+.barInactive {
+    background: #4b5563;
+}
+
+.textContent {}
+
+.title {
+    font-family: var(--font-michroma);
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 2.25rem;
+    }
+}
+
+.subtitle {
+    color: var(--color-neon-blue);
+    font-family: 'Courier New', monospace;
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+}
+
+.capabilitiesList {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.capabilityItem {
+    display: flex;
+    gap: 1rem;
+}
+
+.iconWrapper {
+    margin-top: 0.25rem;
+    color: #9ca3af;
+    transition: color var(--transition-normal);
+}
+
+.capabilityItem:hover .iconWrapper {
+    color: var(--color-neon-blue);
+}
+
+.capabilityContent {}
+
+.capabilityTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-michroma);
+    transition: color var(--transition-normal);
+}
+
+.capabilityItem:hover .capabilityTitle {
+    color: var(--color-neon-blue);
+}
+
+.capabilityDescription {
+    color: #e5e7eb;
+    font-size: 1rem;
+}
