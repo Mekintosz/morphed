@@ -1,0 +1,325 @@
+/* ========================================
+   CSS VARIABLES & DESIGN TOKENS
+   ======================================== */
+
+:root {
+	/* Colors - Neon Theme */
+	--color-neon-blue: #00f3ff;
+	--color-neon-green: #0aff00;
+	--color-dark-bg: #050a14;
+	--color-panel: #0a1120;
+	--color-bg-main: #020617;
+
+	/* Gradients */
+	--gradient-hero: radial-gradient(
+		circle at 50% 50%,
+		rgba(0, 85, 255, 0.15) 0%,
+		rgba(5, 7, 10, 0) 50%
+	);
+	--gradient-card: linear-gradient(
+		145deg,
+		rgba(11, 16, 26, 0.9) 0%,
+		rgba(5, 7, 10, 0.9) 100%
+	);
+	--gradient-glow-conic: conic-gradient(
+		from 180deg at 50% 50%,
+		#00f0ff 0deg,
+		#0066ff 180deg,
+		#00f0ff 360deg
+	);
+	--gradient-neon-blue: linear-gradient(90deg, var(--color-neon-blue), #0066ff);
+
+	/* Shadows - Neon Glows */
+	--shadow-neon-blue:
+		0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.3);
+	--shadow-neon-green:
+		0 0 10px rgba(10, 255, 0, 0.5), 0 0 20px rgba(10, 255, 0, 0.3);
+	--shadow-neon-blue-lg: 0 0 15px rgba(0, 243, 255, 0.2);
+	--shadow-neon-green-lg: 0 0 15px rgba(34, 197, 94, 0.2);
+
+	/* Typography */
+	--font-chakra: "Chakra Petch", sans-serif;
+	--font-audiowide: "AudioWide", sans-serif;
+	--font-michroma: "Michroma", sans-serif;
+
+	/* Spacing */
+	--spacing-xs: 0.25rem;
+	--spacing-sm: 0.5rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 1.5rem;
+	--spacing-xl: 2rem;
+	--spacing-2xl: 3rem;
+	--spacing-3xl: 4rem;
+
+	/* Border Radius */
+	--radius-sm: 0.25rem;
+	--radius-md: 0.5rem;
+	--radius-lg: 1rem;
+	--radius-full: 9999px;
+
+	/* Transitions */
+	--transition-fast: 150ms ease-in-out;
+	--transition-normal: 300ms ease-in-out;
+	--transition-slow: 500ms ease-in-out;
+	--transition-very-slow: 1000ms ease-in-out;
+
+	/* Z-index layers */
+	--z-background: 0;
+	--z-content: 10;
+	--z-overlay: 20;
+	--z-modal: 30;
+	--z-tooltip: 40;
+}
+
+/* ========================================
+   GLOBAL RESET & BASE STYLES
+   ======================================== */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--color-bg-main);
+	color: #ffffff;
+	font-family: var(--font-michroma);
+	overflow-x: hidden;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+	background-color: var(--color-neon-blue);
+	color: #000000;
+}
+
+/* ========================================
+   SHARED UTILITY CLASSES
+   ======================================== */
+
+.container {
+	width: 100%;
+	max-width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+	.container {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+}
+
+/* Text Utilities */
+.text-glow {
+	text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+.text-glow-green {
+	text-shadow: 0 0 10px rgba(10, 255, 0, 0.5);
+}
+
+/* Clip Path Utilities */
+.clip-corner {
+	clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+}
+
+.clip-corner-sm {
+	clip-path: polygon(
+		10px 0,
+		100% 0,
+		100% calc(100% - 10px),
+		calc(100% - 10px) 100%,
+		0 100%,
+		0 10px
+	);
+}
+
+/* Position Utilities */
+.absolute {
+	position: absolute;
+}
+
+.relative {
+	position: relative;
+}
+
+.inset-0 {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.opacity-40 {
+	opacity: 0.4;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.5;
+	}
+}
+
+@keyframes pulse-slow {
+	0%,
+	100% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.8;
+	}
+}
+
+@keyframes pulse-glow {
+	0%,
+	100% {
+		box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+	}
+
+	50% {
+		box-shadow: 0 0 40px rgba(0, 243, 255, 0.6);
+	}
+}
+
+@keyframes pulse-scale {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.02);
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes spin-slow {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slide-in-from-top {
+	from {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-in-from-bottom {
+	from {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-in-from-left {
+	from {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-in-from-right {
+	from {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+/* Animation utility classes */
+.animate-pulse {
+	animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-pulse-slow {
+	animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+	animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-pulse-scale {
+	animation: pulse-scale 3s ease-in-out infinite;
+}
+
+.animate-spin {
+	animation: spin 1s linear infinite;
+}
+
+.animate-spin-slow {
+	animation: spin-slow 3s linear infinite;
+}
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   ======================================== */
+
+/* Mobile: < 640px */
+/* Tablet: 640px - 1024px */
+/* Desktop: > 1024px */
